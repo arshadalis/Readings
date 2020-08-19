@@ -1,0 +1,20 @@
+image is snapshot of some file system and a startup program.
+
+container runs an image inside.
+
+kernel is heart of operating system.
+it resides between computer hardware and the processes running on computer.
+kernel allows the processes to use the resources.
+
+namespacing 
+control groups
+
+virtual machines
+virtual machines emulates the hardware of machine and then runs the operating system on it.
+it makes them very heavy weight.
+
+docker 
+docker does not emulates the hardware, it even uses key fatures of same operating system
+unlike virtual machine which actually runs another operating system on actual operating system.
+hence docker is very light weight
+

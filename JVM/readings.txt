@@ -1,0 +1,162 @@
+
+any process when started gets virtual space for execution whether file, main memory or any other addressable storage. 
+this space is divided into two parts. kernel space and user space.
+windows machine 2gb each.
+linux machine 1gb kernel space 3 gb user space.
+
+Jvm is also a process, it gets its user space.
+divides its space into some parts
+
+==> heap space and method area are
+object are stored in heap. intances of classes etc. memory allocated to each object is depending upon the
+fields of objects and its data types.
+
+method area contains the meta information and methods(behaviours) of classes.
+meta information have all the metadata info like modifiers etc.
+method are contains one important thing called, method table.
+method table is ref to all the instance methods.
+when intance method invocation is done, method table is used to locate the bytecode of method.
+
+method area was earlier in perm gen space.
+in java8 perm gen was removed and method area is now in native heap. it is called as metaspace.
+earlier the perm gen space has limited max size, if reached OOM error would get.
+now Metaspace do not have limit.
+
+==> Garbage collection
+Garbage collector runs on low priority thread.
+it is built in or can add on
+programmers do not have control on when should GC run
+
+it can cause stop-the-world pause.
+
+- GC Algorithm
+challenge for GC
+1. Identify dead objects
+2. reduce pause time
+
+1. Mark and Sweep
+track all the live objects in mark phase. release the non-live objects in sweep phase.
+the disadvantage is, after gc, memory can be fragmented.
+
+2. Mark-sweep-compact
+track all the live objects in mark phase. release the non-live objects in sweep phase. 
+and then compact the memory. disadvantage is added pause time.
+
+3. Mark and Copy
+Maintains two memory locations. copies live object in other memory and then sweeps the first memory location.
+removed extra pause time and objects can be copied in mark phase itself.
+
+-> Generaltional Collection
+divides the heap in generations.
+young gen and old gen. when an object survives some threshold of GC cycles, it moves to old space.
+young gen is divided into eden space, survivor space(from and to or s0 and s1). and then old space.
+
+most generational collections uses mark and copy in young generations
+and mark-sweep-compact in old gen
+
+varoius GCs 
+1. Serial collector
+2. Parallel collector
+3. CMS
+4. G1 collector(java9)
+5. ZGC (java 11)
+
+==> Stack
+method execution is done using stack.
+each thread has its own stack.
+
+
+************************************************************************************************************
+Multithreading
+============================================================================================================
+Process and Thread
+-> Process
+Process is any program in execution. i.e. browser or intellij idea etc.
+each process has resources like registers, program counter,stack memory, heap memory.
+multiple processes do not share resources with each other.
+
+->Thread
+thread is an light weight process. process can have multiple threads.
+threads share resources of process.
+
+-> Volatile keyword
+volatile keyword is used to store thread variable in main memory.
+every thread when assigned to cpu, each CPU has its cache.
+it may store variable in cache which is very fast, since it is near to cpu.
+volatile keyword should only be used if required, since it is not performant.
+
+
+-> Synchronized methods
+when we have a varibale and methods that work with that variable, we need to make sure
+in multithreaded environment no more than one thread access that variable at one given instant.
+if it can, then you lead to inconsistent results
+
+the solution is to have synchronized method to access the variable.
+but when we have a method synchronized, class intrinsic lock is assigned at class level.
+then other part of the class are also not accessible for other threads.
+should use synchronized block with Object locks to deal with this.
+
+-> wait and notify
+wait method halt the current executing thread 
+notify method wakes up the other threads, which are in wait on the same object.
+
+-> semaphores
+semaphores monitors how many resources are remaining. like 
+
+-> countdown latch
+countdwon latch is something that can be use make multiple threads wait for each other, till some 
+countdown is reached.
+when await is called by any thread, it waits for the countdown to reach zero.
+when the counter reaches to zero latch is finished. this is one time shot.
+
+
+-> cyclic barrier
+as countdwon latch but it takes on runnable which will be called after the barrier has reached.
+each thread after completing its execution, call await method and waits for barrier to complete i.e. count.
+then results can be combined from all threads of barrier.
+
+-> blocking queue
+it is an thread safe queue in which push and get operation can be done at same time.
+can be used for producer consumer things.
+no need to handle low level things.
+
+============ Fork Join ====================
+It is an task pool.
+fundamental concept is to fork the big task into parallel entity and then join result.
+two main type RecursiveAction and RecursiveTask
+RecursiveAction do not return result
+RecursiveTask returns the result.
+In fork-join pool it is not compulsory that for every task one thread will be used
+
+
+traditional web frameworks used to assign thread per request.
+now in modern web applications, we do have number of tgings to do with one request like
+database call, IO etc. single thread for all tasks and it is blocked for some tasks like 
+database call, it is inefficient to waste threads.
+
+Fork-Join implements work-stealing, which makes sure no thread is free and it steals work from other threads. In fork join there Tasks. each thread has tasks mentioned above. when an thread is free it steals 
+taks from the tail of task queue of other threads.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
