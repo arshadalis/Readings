@@ -1,0 +1,42 @@
+Software are design to solve some business problems or to automate some Real life business process. this problem or process is domain of the particular software.
+Software is originated from and also deeply related to this domain.
+software shud be reflection of the domain.
+So we shud start with domain always. Domain experts are the source of domain knowledge.like bankers in case of banking application.
+Domain experts have the domain knoweledge. that cant be converted into code. we should have some abstraction built on top of domain knoweledge i.e. Domain Model.
+Domain model is internl representation of target domain. 
+Domain model is the thing around which everything evolvs. we need talk to domain experts, designers, architects, developers etc. Main things is we need to communicate the model.
+if we have model expressed we can start code design.
+waterfall vs Agile
+agile => design and develope. lot of refactoring is done in agile. feedback from developers. agile ignores over-engineering unlike waterfall. hence refactoring makes everything flexible. code is continusly refactored as well as design.
+Domain driven design combines design and developement.
+Good design makes better code developement and feedback from developement enhances design.
+
+The need of ubiquitos language is obvious. devs have classes,objects etc. the code specific things in mind. where the domain experts have domain specifoc knldg. one abstraction that can be built using both these experties is domain model. this model shud is the ubiquitos lang which everyone shud understand.
+
+converting model to code is also important. one well designed model sometime may break software design principles. one recomended design technique to do same is analysis model. which is analysis of domain done without consideration of software being used for implementation.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+(analysis paralysis)

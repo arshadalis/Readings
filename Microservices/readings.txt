@@ -1,0 +1,15 @@
+
+Independentally deployable modules
+1. Can have more choices
+can have more than one technology, language or persistence store.
+2. Its about working fast.
+emphasis is less on consistency and more on speed and flexiblity.
+
+Microservices principles
+1. model around business domain.
+Domain driven desingn design the service around domain ex bounded context, subdomains  which gives sevice bounderies
+
+3. Hide implementation details
+Bounded context, service bounderies
+two services shud not share data
+bounded context -> customer holds diff context in sales service and diff in support

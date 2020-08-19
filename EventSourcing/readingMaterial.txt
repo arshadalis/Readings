@@ -1,0 +1,6 @@
+https://smartbear.com/learn/api-design/what-are-microservices/
+https://blog.jayway.com/2013/03/08/aggregates-event-sourcing-distilled/
+https://softwareengineering.stackexchange.com/questions/354363/how-do-i-deal-with-side-effects-in-event-sourcing
+http://danielwhittaker.me/2015/03/31/how-to-send-emails-the-right-way-in-a-cqrs-system/
+http://blog.leifbattermann.de/2017/04/21/12-things-you-should-know-about-event-sourcing/
+https://hackernoon.com/1-year-of-event-sourcing-and-cqrs-fb9033ccd1c6
