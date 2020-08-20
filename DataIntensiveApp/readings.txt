@@ -1,0 +1,21 @@
+There is one thing in common in most of applications today, that is huge data. Also need tp process that data
+well in time. there are different uses of data for diff requirements. In today's Internet world everything is
+changing very fast. Almost all systems are realtime, process huge data for better services to provide.
+
+There are new advancements in the industry also. New types of databases, various tools etc. But there are few principles
+which remain true for applications. Depending upon their need, diff choices of databases should be made.
+
+What any application should be is, Reliable. Doesn't matter dealing with aerospace domain or medical domain or any mundane
+application. We are accountable for users data and the system should be reliable.
+
+Data intensive system should be Reliable, Scalable and Maintainable.
+
+## Scalability
+It is the ability of the system to cope with the increased data load in system. It is meaningless to say some system
+is scalable or it is not scalable.
+Rather the question should be 'if system grows in particular way, what are our options to cope with it'
+or 'How can we add computing resources to deal with additional load'.
+
+take an example of twitter, where one twit needs to reach to multiple users home timeline if they have subscribed
+to it. some users twit continually but some twits rarely but that reaches to millions, so this fan-out is the key
+load parameter. all application have diff characteristics so diff params to consider for scaling.
