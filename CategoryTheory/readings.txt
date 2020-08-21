@@ -1,0 +1,20 @@
+## Assembly language programming
+Telling computer actual steps to perform. copy this from memory and put it into register and then jump somewhere.
+very imperative way of programming.
+this programs do not scale.
+
+## Procedural programming
+Write procedures, which takes some arguments and return some thing. Chop down bigger task in smaller one.
+Abstract way of programming.
+
+## Object oriented programming
+More general way of programming. One level above of abstraction. Object oriented programming is about
+thinking in terms of objects. objects are the first class citizen.
+Objects hides the implementation and abstract over the interface it provides to access its data or behaviour.
+Object oriented programming is composing these objects together to achieve bigger functionalities.
+Objects are the means of communication between objects.
+
+There is one problem with them Object oriented programming, it does not perform well with concurrency
+and parallel programming. It is because the very nature of OOP, it hides mutation of fields inside.
+Also in OOP objects mutate state of each other. To control mutation then it uses locks. But the locks are hidden
+as well and they do not compose.
