@@ -36,6 +36,12 @@ Using control groups we can control which process can consume how much amount of
 *** Container is something that uses these two concepts to run particular process on given OS.
 refer diagram container-01.jpg
 
+Image is a snapshot of file system and a startup call.
+Container put that snapshot in one of the segment and run the startup call to start the container via
+operating systems native kernel.
+
+These feature Namespacing and Control groups are of linux OS only.
+There is linux virtual machine running on mac or windows os for Docker to run on it.
 
 virtual machines
 virtual machines emulates the hardware of machine and then runs the operating system on it.
