@@ -1,7 +1,7 @@
 Docker is software which makes easy to install and run a software on any computer(very high level).
 
 Image is snapshot of some file system and a startup program.
-it have its own memory, own resources like networking etc. own disk space etc.
+it have own resources like its own memory, networking etc. own disk space etc.
 
 Container runs an image inside.
 
@@ -21,13 +21,13 @@ we use Docker CLI for that.
 ## Kernel and working of OS
 Kernel is the heart of any operating system. All hardware resources like RAM, CPU, HDD is actually used by kernel.
 So whatever processes we are running on our computer like Chrome, Word etc. which needs access to this resources
-get access via Kernel. Kernel exposes some APIs which thses processes calls to store data to HDD or etc etc.
+get access via Kernel. Kernel exposes some APIs which these processes calls to store data to HDD or etc etc.
 
 ## Namespacing
 Namespacing is the technique of dividing the resources into diff segments for different resources.
 For example lets say chrome wants python2 and node wants python3. just assume that we can have only instance
-of any identical processes like python in this case. So using namespacing we can divide HDD into two segments
-one having python2 and other having python3. depending upon the calling processes Kernel will redirect the call
+of any identical process, like python in this case. So using namespacing we can divide HDD into two segments
+one having python2 and other having python3. depending upon the calling process Kernel will redirect the call
 to one of the segment.
 
 ## Control groups
@@ -40,7 +40,7 @@ Image is a snapshot of file system and a startup call.
 Container put that snapshot in one of the segment and run the startup call to start the container via
 operating systems native kernel.
 
-These feature Namespacing and Control groups are of linux OS only.
+These features Namespacing and Control groups are of linux OS only.
 There is linux virtual machine running on mac or windows os for Docker to run on it.
 
 virtual machines
