@@ -1,20 +1,48 @@
-image is snapshot of some file system and a startup program.
+Docker is software which makes easy to install and run a software on any computer(very high level).
 
-container runs an image inside.
+Image is snapshot of some file system and a startup program.
+it have its own memory, own resources like networking etc. own disk space etc.
+
+Container runs an image inside.
 
 kernel is heart of operating system.
 it resides between computer hardware and the processes running on computer.
 kernel allows the processes to use the resources.
 
-namespacing 
-control groups
+Docker Server (or Docker Daemon)
+It is the software which is responsible for running containers, creating images etc.
+
+Docker CLI
+Command line Interface to instruct Docker server to run/create image etc.
+Docker server is something with which we cannot work directly, it runs in background.
+we use Docker CLI for that.
+
+==========================================================================================================
+## Kernel and working of OS
+Kernel is the heart of any operating system. All hardware resources like RAM, CPU, HDD is actually used by kernel.
+So whatever processes we are running on our computer like Chrome, Word etc. which needs access to this resources
+get access via Kernel. Kernel exposes some APIs which thses processes calls to store data to HDD or etc etc.
+
+## Namespacing
+Namespacing is the technique of dividing the resources into diff segments for different resources.
+For example lets say chrome wants python2 and node wants python3. just assume that we can have only instance
+of any identical processes like python in this case. So using namespacing we can divide HDD into two segments
+one having python2 and other having python3. depending upon the calling processes Kernel will redirect the call
+to one of the segment.
+
+## Control groups
+Using control groups we can control which process can consume how much amount of which resource.
+
+*** Container is something that uses these two concepts to run particular process on given OS.
+refer diagram container-01.jpg
+
 
 virtual machines
 virtual machines emulates the hardware of machine and then runs the operating system on it.
 it makes them very heavy weight.
 
-docker 
-docker does not emulates the hardware, it even uses key fatures of same operating system
+docker
+docker does not emulates the hardware, it even uses key features of same operating system
 unlike virtual machine which actually runs another operating system on actual operating system.
 hence docker is very light weight
 
