@@ -52,3 +52,66 @@ docker does not emulates the hardware, it even uses key features of same operati
 unlike virtual machine which actually runs another operating system on actual operating system.
 hence docker is very light weight
 
+As we know docker image is a snapshot of File system and some default start command.
+we can override this command like this
+docker run <image_name> <command>
+
+## Container Lifecycle
+docker create image -> creates an container with the file system snapshot inside it.
+docker start containerId -> starts the run/startup command inside the container and starts the container.
+docker start -a containerId -> starts the run/startup command of container and attaches the output to the docker client.
+
+commands
+
+docker ps -> lists all the currently running containers
+
+docker ps -a -> lists all the containers ran and exited till now
+
+we can start the exited container with its id.
+but we cannot the override the default startup command of older container.
+
+docker system prune -> to remove all the stopped containers
+
+docker logs containerId -> to see logs of any stopped container
+
+docker stop containerId -> stops the process running inside. SIGTERM message is sent to the process.
+recommended. processes get the chance to properly shut down.
+
+docker kill containerId -> kills the process running inside. SIGKILL message is sent to the process.
+kills the container immediately. if the container is not responding.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
