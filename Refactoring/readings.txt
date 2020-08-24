@@ -1,0 +1,11 @@
+Any fool can write code that compiler can understand, good programmer writes code that human can understand.
+
+It is researched and been said that code is read more number of times than it is written.
+
+1. Extract function
+extract function from long inline function.
+
+2. Replace temp with query
+remove unnecessary parameters of function if that can be calculated from one of the parameter.
+
+3. Split loop
