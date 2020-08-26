@@ -80,6 +80,30 @@ recommended. processes get the chance to properly shut down.
 docker kill containerId -> kills the process running inside. SIGKILL message is sent to the process.
 kills the container immediately. if the container is not responding.
 
+## Running commands inside running container
+exec command is use to run commands inside running container
+
+docker exec containerId command
+
+in any linux process, there are three standard api provided
+standardIn, standardOut, standardError
+
+we can connect to these api via docker command flags like
+* -i -> to connect your terminal to the process running inside container.
+then whatever we type is sent to the standard in of the running process inside for example
+
+docker exec -i mysqlContainer mysql
+this will actually run command mysql inside the container and what u will get is mysql shell on your terminal
+mysql> select * etc etc
+
+-t like pretty print the output sent from the process
+like in above example actually it wont print 'mysql>' if dont give -t
+
+we can give these two together like
+docker exec -it containerId commands
+
+we can also start the shell like sh or bash or zsh using the exec
+
 
 
 
