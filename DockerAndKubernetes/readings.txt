@@ -104,6 +104,27 @@ docker exec -it containerId commands
 
 we can also start the shell like sh or bash or zsh using the exec
 
+## Creating our own images
+Building our own docker images comprises of below things
+1. Specify base image. => FROM alpine
+2. Install additional programs, dependencies that we need. => RUN apk add --update redis
+3. Specify start up command to fire when the container starts. => CMD ["redis-server"]
+
+the command used to build the image from docker file
+docker build .
+'.' stands for the build context. the path of the resources needed to build the image.
+-t tag is use to tag the name to the image
+convention is yourDockerId/imageName:version
+
+to map the port of the container to local machines port
+-p localPort:containerPort
+-p 8080:8080
+-p 5000:8080
+
+## working directory
+
+WORKDIR is the command to specify the default working directory. the build context will be copied in this directory.
+this will be the default path when someone logs in.
 
 
 

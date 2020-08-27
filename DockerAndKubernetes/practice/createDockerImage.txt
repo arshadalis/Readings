@@ -1,0 +1,1 @@
+creating docker image that consist of Kafka server
