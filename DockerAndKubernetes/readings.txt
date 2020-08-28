@@ -126,6 +126,18 @@ to map the port of the container to local machines port
 WORKDIR is the command to specify the default working directory. the build context will be copied in this directory.
 this will be the default path when someone logs in.
 
+when we have multiple containers to create and they are dependent on each other, using docker cli becomes bit headache.
+defining networking between containers is also very verbose by docker cli. also we need to repeat and remember so many commands
+if we do that using docker cli.
+
+docker compose is the tool which is meant for this. defining multiple containers and networking between them.
+
+docker compose starts these container as if they are on same network. if one of the container tries to connect some url
+and that is name of other container service, docker compose automatically interprets this and connect these two.
+
+docker volumes
+volume bookmarking
+to exclude mapping between container path with local path
 
 
 
