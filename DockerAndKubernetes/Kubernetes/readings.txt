@@ -1,0 +1,87 @@
+Kubernetes is the OS of cloud native apps. provides reliable and scalable platform for containerized apps.
+
+
+=> Architecture
+
+Control plane is the heart of the kubernetes cluster. The nodes which has control plane are called Master nodes.
+Kubernetes uses etcd database to store all te cluster info.
+There are multiple master nodes and all of them have replicated etcd database. Kubernetes is highly available.
+
+Deployments
+
+For every program that kubernetes needs to monitor Kubernetes creates deployment object for that. These kubernetes objects called controller.
+Controller also manages the replicas of the programs.
+
+Pod is the kubernetes object that runs multiple containers within. It is also the means of replication. Deployment creates pods.
+Actually the replication is handled by another kubernetes object called ReplicaSet. Replica set takes care of pod.
+It also manages if the replica is as desired state or not. If lets say there are more than required pods running or less than required
+pods running then it will spin up the cluster accordingly.
+
+All above mentioned things like replica set managing the no of desired replicas or if the pod id deleted then new getting started,
+is actually done via scheduler. Scheduler is the component responsible for this process.
+when the replica set decides to add more replica its adds the new pod request to kubernetes database. It is then added to
+scheduler queue which is schedulers inbox. Schedulers job is to watch through unscheduled job and schedule them.
+Scheduler also check which node to assign the pod with some parameters to consider. Then the kubelet taes the pod and starts it.
+When we delete the pod the kubelet finds out that this pod shoud be running and adds the pod to schedulers queue.
+
+There are various resources like CPU, Memory, Network bandwidth, Disk IO etc. Kubernetes manages resources for CPU and memory.
+we can specify resource requests and resource limits.
+
+Service: manage networking of pods. Also acts as a load balancer out of the box.
+
+======= Lifecycle of containers ====================
+Kubernetes restarts containers automatically whenever the container is failed, stopped killed etc.
+
+==> Liveness probes
+The service lets say HTTP server should expose some port like /health to specify the liveness of the service.
+this can be specified which kubernetes will call and check for its health. if it replies 200 ok or 300 then considered alive.
+
+there are various other probes available like tcp and exec probes.
+exec probes are used to execute some command and if that command runs successfully then container is running sorts.
+
+Readiness probe
+Sometimes application needs to inform kubernetes that the application needs some time to get ready may be because it
+is doing some lengthy initialization process.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
