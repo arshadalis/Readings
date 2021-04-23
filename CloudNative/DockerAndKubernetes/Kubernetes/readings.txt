@@ -26,13 +26,50 @@ All above mentioned things like replica set managing the no of desired replicas 
 is actually done via scheduler. Scheduler is the component responsible for this process.
 when the replica set decides to add more replica its adds the new pod request to kubernetes database. It is then added to
 scheduler queue which is schedulers inbox. Schedulers job is to watch through unscheduled job and schedule them.
-Scheduler also check which node to assign the pod with some parameters to consider. Then the kubelet taes the pod and starts it.
-When we delete the pod the kubelet finds out that this pod shoud be running and adds the pod to schedulers queue.
+Scheduler also check which node to assign the pod with some parameters to consider. Then the kubelet takes the pod and starts it.
+
 
 There are various resources like CPU, Memory, Network bandwidth, Disk IO etc. Kubernetes manages resources for CPU and memory.
 we can specify resource requests and resource limits.
 
-Service: manage networking of pods. Also acts as a load balancer out of the box.
+Service: manage networking of pods. It is like fixed IP address with DNS name.
+Also acts as a load balancer out of the box. It routes the request to the least busy pod.
+
+
+============   Architecture   =====================
+mainly has two types of nodes. worker node and master node.
+Worker nodes contains atleast basic below properties
+
+### Worker Node
+
+Container runtime:  example docker etc.
+The applications are running in pods are inside container in the container runtime.
+
+Kubelet:
+The process which actually schedules containers in container runtime.
+Interface between node and container runtime.
+It takes the configuration and starts the pods with defined resources like cpu, memory etc.
+
+Kube Proxy:
+Kube proxy is responsible to forward request from Service to actual pod in performant way.
+
+### Master node:
+Api Server:
+Single gateway for the communication in kubernetes. All requests come in via Api server.
+This is also check for the authentication of requests and forwards it to the controller or scheduler.
+
+Scheduler:
+Responsible to schedule/remove pods. intelligent to schedule pod according to availibility of resources on nodes.
+
+Controller:
+Monitors the state of the cluster. if lets say any is pod is dead, informs about it to the scheduler.
+
+Etcd:
+all the data of the cluster. not application data, data of kubernetes state.
+
+
+
+
 
 ======= Lifecycle of containers ====================
 Kubernetes restarts containers automatically whenever the container is failed, stopped killed etc.
