@@ -19,3 +19,26 @@ or 'How can we add computing resources to deal with additional load'.
 take an example of twitter, where one twit needs to reach to multiple users home timeline if they have subscribed
 to it. some users twit continually but some twits rarely but that reaches to millions, so this fan-out is the key
 load parameter. all application have diff characteristics so diff params to consider for scaling.
+
+Reliability
+Maintainability
+
+Document model vs Relational
+Document
+one-to-many relationship
+event data
+customize query support
+localization
+better match with OOP
+if the structure of the data is countinously changing
+
+*downside
+joins
+localization supports when reading large parts of documents. because database needs to load whole documents. reading small parts is wasteful.
+updates involves re-writing of whole docs
+
+Relational
+many-to-one, many-to-many relationship
+structured/schema data probably not changing much
+retreiving only specific fields or updating specific fields mostly
+
