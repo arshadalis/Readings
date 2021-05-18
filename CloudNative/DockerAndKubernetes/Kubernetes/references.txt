@@ -2,3 +2,6 @@
 
 https://jvns.ca/categories/kubernetes/
 http://kamalmarhubi.com/blog/2015/08/27/what-even-is-a-kubelet/
+
+// resources and limits
+https://cloud.google.com/blog/products/containers-kubernetes/kubernetes-best-practices-resource-requests-and-limits
