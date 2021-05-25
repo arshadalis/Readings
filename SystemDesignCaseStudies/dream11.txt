@@ -1,0 +1,10 @@
+problem:
+large user base.
+increasing user base every year by 10X,50X,200X etc.
+millions of concurrent users.
+varying load which depends upon events like toss, popular player is playing etc.
+
+
+
+dream11 team replaced their main database with amazon aurora for horizontal scaling.
+this was one of the first step taken to handle scaling.
