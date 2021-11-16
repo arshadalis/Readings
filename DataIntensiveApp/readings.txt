@@ -25,6 +25,10 @@ Maintainability
 
 Document model vs Relational
 Document
+Data is in self-contained form. relationship between document is rare(joins).
+
+Graph database and document database do not enforce schema. which makes easier for application to adapt changing requirements.
+
 one-to-many relationship
 event data
 customize query support
@@ -41,4 +45,29 @@ Relational
 many-to-one, many-to-many relationship
 structured/schema data probably not changing much
 retreiving only specific fields or updating specific fields mostly
+
+=> Storage and retrieval techniques
+database have two key options
+storage to retrieval
+
+some database implementations are read effiecient some are write
+depending upon application requirement we must choose which to use
+
+for faster read from database
+* index
+index is an additional metadata to optimize the queries. index makes reads efficient. however index makes writes slow
+
+one implementation can be storing data in file segments. and storing key and offset of data in memory.
+this would make reads faster. Bitcask is one example.
+this maintains hashmap of key and offset.
+this needs compaction of segments. syncing data. 
+deletion of data involves writing delete log and then take care of it at compaction.
+if the database restarted (main memory) then crash recovery.
+
+
+
+* SSTable LSM tree
+SSTable means sorted string table. no need to store offset of all keys. segments are sorted key wise.
+
+
 
