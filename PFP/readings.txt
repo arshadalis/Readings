@@ -1,2 +1,29 @@
 
 refined library: compile time validations
+
+
+
+### Value classes
+value classes extends AnyVal and have exactly one parameter. The value classes are used to avoid runtime overhead of object creation.
+case class Wrapper(value:Int) extends AnyVal
+at compile time the representation is wrapper, at runtime it is Int.
+Object creation is avoided.
+
+*** Extension methods
+Value classes are useful in implicit class extension methods. RichInt class of standard library is good example of it.
+
+** Sometimes value classes needs to be allocated
+1. When classes are treated as another type
+trait Distance extends Any
+case class Meter(val v:Int) extends AnyVal with Distance
+
+2. When assigned to array
+3. In Type tests, such as pattern matching or asInstanceOf
+
+### newtypes library
+this solves the extra allocation issue using macros. but this do not provides validations
+so we need smart contructors. which adds boilerplate
+
+### refinement type
+refinement types can be used to add all these predicates. it also applies the predicates on compile time.
+practically all the data is going to come in runtime. It also provides provision to validate data on runtime.
